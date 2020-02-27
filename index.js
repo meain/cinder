@@ -84,6 +84,39 @@ function makeCircle(x, y, r, color = "steelblue", l = 0) {
       l + 1
     );
   };
+
+  shape.touchenter = () => {
+    if (Number(shape.getAttribute("level")) > MAX_LEVEL) return;
+    board.removeChild(shape);
+    makeCircle(
+      x - r / 2,
+      y - r / 2,
+      r / 2,
+      fakeRenderImage(x - r / 2, y - r / 2),
+      l + 1
+    );
+    makeCircle(
+      x - r / 2,
+      y + r / 2,
+      r / 2,
+      fakeRenderImage(x - r / 2, y + r / 2),
+      l + 1
+    );
+    makeCircle(
+      x + r / 2,
+      y - r / 2,
+      r / 2,
+      fakeRenderImage(x + r / 2, y - r / 2),
+      l + 1
+    );
+    makeCircle(
+      x + r / 2,
+      y + r / 2,
+      r / 2,
+      fakeRenderImage(x + r / 2, y + r / 2),
+      l + 1
+    );
+  };
   board.appendChild(shape);
 }
 

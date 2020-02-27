@@ -1,5 +1,7 @@
 * {
   box-sizing: border-box;
+  user-select: none;
+  overflow: hidden;
 }
 body {
   margin: 0;
@@ -38,4 +40,5 @@ body {
   font-family: monaco, consolas, monospace;
   text-align: center;
   width: 100%;
+  margin-top: 5px;
 }

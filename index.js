@@ -4,13 +4,15 @@ const { width, height } = board.getBoundingClientRect();
 const RADIUS = Math.max(width, height) / 2;
 const MAX_LEVEL = 6;
 
+const handle = prompt("Enter your github handle", "meain");
+
 function map(s, a1, a2, b1, b2) {
   return b1 + ((s - a1) * (b2 - b1)) / (a2 - a1);
 }
 
 function fakeRenderImage(x, y) {
   const image = document.getElementById("im");
-  image.src = "https://avatars.githubusercontent.com/meain";
+  image.src = `https://avatars.githubusercontent.com/${handle}`;
   const canvas = document.getElementById("can");
   const context = canvas.getContext("2d");
 

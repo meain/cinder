@@ -55,67 +55,11 @@ function makeCircle(x, y, r, color = "steelblue", l = 0) {
   shape.onmouseenter = () => {
     if (Number(shape.getAttribute("level")) > MAX_LEVEL) return;
     board.removeChild(shape);
-    makeCircle(
-      x - r / 2,
-      y - r / 2,
-      r / 2,
-      fakeRenderImage(x - r / 2, y - r / 2),
-      l + 1
-    );
-    makeCircle(
-      x - r / 2,
-      y + r / 2,
-      r / 2,
-      fakeRenderImage(x - r / 2, y + r / 2),
-      l + 1
-    );
-    makeCircle(
-      x + r / 2,
-      y - r / 2,
-      r / 2,
-      fakeRenderImage(x + r / 2, y - r / 2),
-      l + 1
-    );
-    makeCircle(
-      x + r / 2,
-      y + r / 2,
-      r / 2,
-      fakeRenderImage(x + r / 2, y + r / 2),
-      l + 1
-    );
-  };
-
-  shape.touchenter = () => {
-    if (Number(shape.getAttribute("level")) > MAX_LEVEL) return;
-    board.removeChild(shape);
-    makeCircle(
-      x - r / 2,
-      y - r / 2,
-      r / 2,
-      fakeRenderImage(x - r / 2, y - r / 2),
-      l + 1
-    );
-    makeCircle(
-      x - r / 2,
-      y + r / 2,
-      r / 2,
-      fakeRenderImage(x - r / 2, y + r / 2),
-      l + 1
-    );
-    makeCircle(
-      x + r / 2,
-      y - r / 2,
-      r / 2,
-      fakeRenderImage(x + r / 2, y - r / 2),
-      l + 1
-    );
-    makeCircle(
-      x + r / 2,
-      y + r / 2,
-      r / 2,
-      fakeRenderImage(x + r / 2, y + r / 2),
-      l + 1
-    );
+    const rr = r / 2;
+    makeCircle(x - rr, y - rr, rr, fakeRenderImage(x - rr, y - rr), l + 1);
+    makeCircle(x - rr, y + rr, rr, fakeRenderImage(x - rr, y + rr), l + 1);
+    makeCircle(x + rr, y - rr, rr, fakeRenderImage(x + rr, y - rr), l + 1);
+    makeCircle(x + rr, y + rr, rr, fakeRenderImage(x + rr, y + rr), l + 1);
   };
   board.appendChild(shape);
 }

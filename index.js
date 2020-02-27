@@ -1,7 +1,17 @@
+const body = document.getElementsByTagName("body")[0];
 const board = document.getElementById("draw");
-const { width, height } = board.getBoundingClientRect();
+let { width, height } = body.getBoundingClientRect();
+const min = Math.min(width, height);
+board.setAttribute("width", min);
+board.setAttribute("height", min);
+board.setAttribute(
+  "style",
+  `margin-left: ${(width - min) / 2}px; margin-top: ${(height - min) / 2}px;`
+);
+width = min;
+height = min;
 
-const RADIUS = Math.max(width, height) / 2;
+const RADIUS = Math.max(width, height) / 4;
 const MAX_LEVEL = 6;
 
 const handle = prompt("Enter your github handle", "meain");
@@ -10,8 +20,12 @@ function map(s, a1, a2, b1, b2) {
   return b1 + ((s - a1) * (b2 - b1)) / (a2 - a1);
 }
 
+const image = document.getElementById("im");
+image.onload = () => {
+  document.getElementById("masker").style.display = "none";
+};
+
 function fakeRenderImage(x, y) {
-  const image = document.getElementById("im");
   image.src = `https://avatars.githubusercontent.com/${handle}`;
   const canvas = document.getElementById("can");
   const context = canvas.getContext("2d");

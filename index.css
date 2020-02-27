@@ -17,6 +17,25 @@ body {
 #draw {
   top: 0;
   left: 0;
+  /* width: 100vw; */
+  /* height: 100vh; */
+}
+
+#masker {
+  top: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
   width: 100vw;
   height: 100vh;
+  font-family: monaco, consolas, monospace;
+}
+
+.info {
+  color: #ccc;
+  font-family: monaco, consolas, monospace;
+  text-align: center;
+  width: 100%;
 }

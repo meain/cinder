@@ -1,7 +1,8 @@
 const body = document.getElementsByTagName("body")[0];
 const board = document.getElementById("draw");
 let { width, height } = body.getBoundingClientRect();
-const min = Math.min(width, height);
+let min = Math.min(width, height);
+min = min - min / 5;
 board.setAttribute("width", min);
 board.setAttribute("height", min);
 board.setAttribute(
@@ -11,7 +12,7 @@ board.setAttribute(
 width = min;
 height = min;
 
-const RADIUS = Math.max(width, height) / 4;
+const RADIUS = min / 2;
 const MAX_LEVEL = 6;
 
 const handle = prompt("Enter your github handle", "meain");
